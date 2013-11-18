@@ -117,6 +117,12 @@ io.on("connection", function(socket){
 });
 
 //Start the http server at port and IP defined before
-http.listen(app.get("port"), app.get("ipaddr"), function() {
-  console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
-});
+//http.listen(app.get("port"), app.get("ipaddr"), function() {
+//  console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
+//});
+
+//  heroku dynamic port fix
+// based on
+// http://stackoverflow.com/questions/15693192/heroku-node-js-error-web-process-failed-to-bind-to-port-within-60-seconds-of
+
+http.listen(process.env.PORT || 8080);
