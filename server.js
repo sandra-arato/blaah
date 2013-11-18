@@ -49,6 +49,12 @@ app.use(express.static("public", __dirname + "/public"));
 //Tells server to support JSON, urlencoded, and multipart requests
 app.use(express.bodyParser());
 
+/* Heroku fix for dynamic IP */
+// --sandra
+
+var port = process.env.PORT || CONFIG.port;
+// app.listen(port);
+
 /* Server routing */
 
 //Handle route "GET /", as in "http://localhost:8080/"
@@ -121,8 +127,10 @@ io.on("connection", function(socket){
 //  console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
 //});
 
-//  heroku dynamic port fix
+//  Heroku dynamic port fix
 // based on
 // http://stackoverflow.com/questions/15693192/heroku-node-js-error-web-process-failed-to-bind-to-port-within-60-seconds-of
+// and http://www.vibesphere.com/2013/06/gotchas-for-node-js-apps-on-heroku/
+// --sandra
 
-http.listen(process.env.PORT || 8080);
+http.listen(port);
