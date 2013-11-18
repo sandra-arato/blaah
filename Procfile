@@ -1,2 +1,2 @@
 web: node server.js
-web: node fallback.js
+worker: node fallback.js
