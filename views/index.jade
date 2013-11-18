@@ -1,29 +1,33 @@
 doctype 5
 html
   head
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css')
+    link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/style.css')
     script(src='/js/socket.io.min.js')
     script(src='/js/jquery-1.10.2.min.js')
     script(src='/js/index.js')    
     title MessageBoard
   body
-    h1 MessageBoard
-    h2 alpha version up and running
-    div
-      div.inlineBlock
-        span Name
+    header
+      h1 MessageBoard
+      h2 alpha version up and running
+      span Name
           input(type="text")#name
         br
-        form#messageForm
-          textarea(rows="4", cols="50", placeholder="Share something!", maxlength=200)#outgoingMessage
-          input(type="button", value="Send", disabled=true)#send
-      div.inlineBlock.topAligned
+    div.container
+      div.memberList
         p Members
         br
         div#members
-      div#overlay
-        div#modal
-          div#content Sorry, can't connect to server right now, please wait or try to refresh
-            a(href='#')#popup OK
-    div#messages
+      div#messages
+    div#overlay
+      div#modal
+        div#content Please wait till you connect
+          a(href='#')#popup OK
+    footer
+      div.messageBox
+        form#messageForm
+          input(type="button", value="Send", disabled=true)#send
+          textarea(rows="4", cols="109" placeholder="type here", maxlength=200)#outgoingMessage
+      span copyright the super-cool sandra szenti
