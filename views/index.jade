@@ -1,0 +1,29 @@
+doctype 5
+html
+  head
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/js/socket.io.min.js')
+    script(src='/js/jquery-1.10.2.min.js')
+    script(src='/js/index.js')    
+    title MessageBoard
+  body
+    h1 MessageBoard
+    h2 alpha version up and running
+    div
+      div.inlineBlock
+        span Name
+          input(type="text")#name
+        br
+        form#messageForm
+          textarea(rows="4", cols="50", placeholder="Share something!", maxlength=200)#outgoingMessage
+          input(type="button", value="Send", disabled=true)#send
+      div.inlineBlock.topAligned
+        p Members
+        br
+        div#members
+      div#overlay
+        div#modal
+          div#content Sorry, can't connect to server right now, please wait or try to refresh
+            a(href='#')#popup OK
+    div#messages
